@@ -1,0 +1,184 @@
+/* =========================================
+   PHOTO STRATEGY セクション (写真の法則)
+========================================= */
+.photo-strategy {
+    background: #fdfdfd;
+    padding: 100px 0;
+}
+
+.strategy-container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.strategy-block {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    border: 1px solid #eee;
+}
+
+.strategy-block.ng-block {
+    border-top: 4px solid #7f8c8d; /* NGっぽさを出すグレー */
+}
+
+.strategy-block.ok-block {
+    border-top: 4px solid var(--accent); /* 正解を強調する赤 */
+}
+
+/* タイトルとバッジ */
+.block-title {
+    font-size: clamp(20px, 4vw, 24px);
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.type-badge {
+    font-size: 13px;
+    font-weight: 900;
+    font-family: sans-serif;
+    padding: 4px 12px;
+    border-radius: 4px;
+    color: #fff;
+    letter-spacing: 0.05em;
+}
+
+.type-badge.ng { background: #7f8c8d; }
+.type-badge.ok { background: var(--accent); }
+
+/* NGセクションのリード文 */
+.block-lead {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 32px;
+    font-weight: 700;
+}
+
+/* --- NGの4グリッド --- */
+.photo-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.photo-item { text-align: center; }
+
+.photo-item .caption {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-top: 12px;
+    line-height: 1.4;
+}
+
+/* --- OKの2グリッド --- */
+.photo-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.ok-item {
+    background: var(--bg-light);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+}
+
+.ok-details {
+    padding: 20px;
+}
+
+.ok-details h4 {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.ok-details p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* --- 画像ラッパーとモザイク --- */
+.img-wrapper {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: #e0e0e0;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-wrapper.mosaic img {
+    transform: scale(1.1);
+}
+
+/* --- 中央の矢印 --- */
+.strategy-arrow {
+    text-align: center;
+    font-size: 28px;
+    color: #ccc;
+    margin: 20px 0;
+}
+
+/* --- プロの視点（結論） --- */
+.strategy-result {
+    background: #fff;
+    padding: 30px;
+    border: 3px solid var(--accent);
+    border-radius: 8px;
+    margin-top: 40px;
+    position: relative;
+    text-align: center;
+}
+
+.strategy-result .result-tag {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 900;
+    padding: 4px 20px;
+    border-radius: 50px;
+    letter-spacing: 0.1em;
+}
+
+.strategy-result p {
+    font-size: clamp(15px, 3vw, 18px);
+    font-weight: 700;
+    line-height: 1.8;
+    color: var(--primary);
+    margin-top: 10px;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    .strategy-block { padding: 30px 20px; }
+    
+    /* スマホではNGを2列×2行にする */
+    .photo-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    
+    /* スマホではOKを縦並びにする */
+    .photo-grid-2 { grid-template-columns: 1fr; gap: 24px; }
+    
+    .strategy-result { padding: 30px 20px 24px; }
+    .strategy-result p { text-align: left; }
+    .pc-only { display: none; }
+}

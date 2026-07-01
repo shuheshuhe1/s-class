@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+/* =========================================
+   PROBLEM (お悩みセクション)
+========================================= */
+.problem {
+    padding: 100px 20px;
+    background-color: var(--bg-light); 
+    color: var(--text);
+    text-align: center; /* ★PC・SP共に中央揃えを絶対死守 */
+}
+
+/* ▼ 導入文：PCで2行、SPで中央揃えを維持 ▼ */
+.problem-intro {
+    max-width: 850px; 
+    margin: 0 auto 60px;
+    font-size: clamp(15px, 2.5vw, 18px); 
+    line-height: 2.2; 
+    color: var(--text);
+    font-weight: 500;
+    text-align: center; /* ★ここをleftにしていたのが戦犯でした。centerに戻します */
+}
+
+.problem-intro strong {
+    font-weight: 800;
+    color: var(--primary);
+}
+
+/* ▼ お悩みリスト（カード型） ▼ */
+.problem-list {
+    list-style: none;
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 20px;
+    text-align: left; /* カードの中身だけは左寄せ（チェックマークとの兼ね合い） */
+}
+
+.problem-list li {
+    background: var(--white);
+    padding: 24px 24px 24px 60px; 
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.6;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+    border: 2px solid transparent; /* ホバー時のための透明ボーダー */
+    display: block;
+    transition: all 0.3s ease; /* ★アニメーションを滑らかに */
+}
+
+/* ★復活！：ホバー時のアクション ★ */
+.problem-list li:hover {
+    transform: translateY(-5px); /* 少し浮き上がる */
+    border-color: var(--accent); /* SClassレッドの枠線が出る */
+    box-shadow: 0 12px 30px rgba(211, 47, 47, 0.1); /* 赤みのある影 */
+}
+
+/* チェックマークのデザイン */
+.problem-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    background-color: var(--accent);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+/* 赤いマーカー（強調ライン） */
+.problem-list li .marker {
+    background: linear-gradient(transparent 60%, rgba(211, 47, 47, 0.15) 60%);
+    color: var(--accent);
+    font-weight: 800;
+}
+
+/* ▼ 下部のCTAテキスト ▼ */
+.problem-cta {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(18px, 4vw, 24px);
+    line-height: 1.8;
+    font-weight: 700;
+    text-align: center;
+}
+
+.problem-cta .accent {
+    color: var(--accent);
+    font-weight: 900;
+}
+
+/* =========================================
+   レスポンシブ
+========================================= */
+
+.sp-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sp-only {
+        display: block;
+    }
+    
+    .problem {
+        padding: 80px 20px;
+    }
+
+    .problem-intro {
+        max-width: 100%;
+        font-size: 15px; /* SPでも読みやすいよう微増 */
+        line-height: 2;
+        text-align: center; /* ★SPも絶対中央揃え！ */
+        font-weight: 500; /* ★太すぎない上品なウェイト */
+    }
+
+    .problem-list {
+        grid-template-columns: 1fr; 
+        gap: 15px;
+    }
+
+    .problem-list li {
+        padding: 20px 20px 20px 52px;
+        font-size: 14px;
+        font-weight: 700; /* SPでもしっかり読める太さ */
+    }
+}

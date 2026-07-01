@@ -1,0 +1,109 @@
+/* =========================================
+   FOUR PILLARS セクション (市松レイアウト)
+========================================= */
+.pillars {
+    background: #fdfdfd;
+    padding: 100px 0;
+}
+
+.section-lead {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 80px; /* 余白を広めに */
+}
+
+.pillars-list {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* 1行の構成（横並び） */
+.pillar-row {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* 画像とテキストの隙間 */
+    margin-bottom: 80px; /* 行と行の隙間 */
+}
+
+/* 最後の行は下の余白を消す */
+.pillar-row:last-child {
+    margin-bottom: 0;
+}
+
+/* 偶数行は左右反転（リバース） */
+.pillar-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* 画像エリア（幅を50%確保） */
+.pillar-img {
+    width: 50%;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 綺麗な影 */
+}
+
+.pillar-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* テキストエリア（幅を50%確保） */
+.pillar-content {
+    width: 50%;
+}
+
+.pillar-num {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: var(--accent); /* 赤色 */
+    margin-bottom: 12px;
+}
+
+.pillar-title {
+    font-size: clamp(22px, 4vw, 28px); /* 文字も大きめに！ */
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    color: var(--primary);
+}
+
+.pillar-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .pillars { padding: 80px 0; }
+    .section-lead { margin-bottom: 50px; }
+    
+    /* SPでは市松を解除し、全て「画像が上、テキストが下」の縦並びに */
+    .pillar-row, 
+    .pillar-row.reverse {
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 60px;
+    }
+
+    .pillar-img {
+        width: 100%; /* 画像を画面幅いっぱいに */
+    }
+
+    .pillar-content {
+        width: 100%;
+        padding: 0 10px; /* テキストの左右に少し余白 */
+    }
+    
+    .pillar-title { font-size: 22px; margin-bottom: 16px; }
+    .pillar-desc { font-size: 14px; }
+}

@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+/* =========================================
+   MENTOR (講師紹介セクション)
+========================================= */
+.mentor { 
+    background: var(--gradient-dark); 
+    color: var(--white); 
+    padding: 120px 20px;
+}
+
+.mentor-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* PCで2枚のカードを横並び */
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.mentor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(211, 47, 47, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.mentor-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(211, 47, 47, 0.4);
+    box-shadow: 0 15px 40px rgba(211, 47, 47, 0.2);
+}
+
+.mentor-photo {
+    width: 160px;
+    height: 160px;
+    background: var(--white);
+    border: 2px solid rgba(211, 47, 47, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    margin-bottom: 24px;
+}
+
+.mentor-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.mentor-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mentor-body h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.mentor-body .name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 24px;
+    color: var(--white);
+}
+
+.mentor-body p {
+    font-size: 15px;
+    line-height: 2;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+/* =========================================
+   ▼▼▼ 赤線なし・2列横並びの実績エリア ▼▼▼
+========================================= */
+.mentor-stats {
+    display: flex;
+    gap: 48px; /* 数字同士の左右の間隔 */
+    justify-content: center; /* 中央に2つ並べる */
+    width: 100%;
+    margin-top: auto;
+}
+
+.mentor-stats div {
+    border: none; /* ★線を完全に削除 */
+    padding: 0;   /* 余白もリセット */
+    text-align: center; /* 線がないので中央揃えが最も美しい */
+}
+
+.mentor-stats .num {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px; /* 数字を少し大きくして目立たせる */
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.2;
+}
+
+.mentor-stats .lb {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+/* =========================================
+   スマホ対応 (768px以下)
+========================================= */
+@media (max-width: 768px) {
+    .mentor-wrap { 
+        grid-template-columns: 1fr; /* スマホではカードを縦に */
+    }
+    
+    .mentor-stats {
+        gap: 32px; /* スマホでは少し隙間を詰める */
+    }
+    
+    .mentor-body .name { 
+        font-size: 28px; 
+    }
+}

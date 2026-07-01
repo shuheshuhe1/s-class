@@ -1,0 +1,173 @@
+/* ===== FINAL CTA ===== */
+.final-cta {
+    background: var(--gradient-dark);
+    text-align: center;
+    padding: 120px 20px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.final-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(211,47,47,0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.final-cta .container { 
+    position: relative; 
+    z-index: 1;
+}
+
+.final-cta .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; /* 少し大きく */
+    color: var(--accent);
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* ▼ メインコピーを大きく迫力あるサイズに！ ▼ */
+.final-cta h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(28px, 5.5vw, 48px); /* PCでもスマホでも大きく */
+    font-weight: 900;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.final-cta h2 .accent { 
+    color: var(--accent); 
+}
+
+/* ▼ 説得文も文字を大きく、行間を広げて読みやすく ▼ */
+.final-cta .desc {
+    font-size: 17px; /* 15px → 17pxへUP */
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 48px;
+    line-height: 2.2;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+}
+
+/* ▼ ボタンも大きくしてタップしやすく ▼ */
+.final-cta .cta-btn {
+    font-size: 18px; /* 17px → 18pxへUP */
+    padding: 24px 72px; /* ボタン自体も一回り大きく */
+}
+
+/* =========================================
+   ▼▼▼ ダサかったチェックリストを「高級バッジ」に！ ▼▼▼
+========================================= */
+.final-cta .guarantees {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 48px;
+}
+
+.final-cta .guarantees span {
+    background: rgba(255, 255, 255, 0.05); /* うっすらガラス風の背景 */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* 上品な白い細枠 */
+    padding: 10px 24px;
+    border-radius: 50px; /* 丸みのあるピル型 */
+    color: var(--white);
+    font-size: 14px; /* 12px → 14pxへUP */
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* チェックマークを「赤い丸背景＋白チェック」にして目立たせる */
+.final-cta .guarantees span::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+/* スマホ用の微調整 */
+@media (max-width: 600px) {
+    .final-cta .guarantees {
+        gap: 12px;
+    }
+    .final-cta .guarantees span {
+        font-size: 13px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .final-cta {
+        padding: 80px 16px; /* 余白を少し詰める */
+    }
+
+    /* メインコピー：スマホで1行に収まるようにサイズを微調整 */
+    .final-cta h2 {
+        /* clamp(最小, 推奨(可変), 最大) でスマホに最適化 */
+        font-size: clamp(20px, 6.2vw, 26px); 
+        line-height: 1.6;
+        margin-bottom: 24px;
+        letter-spacing: 0.05em;
+    }
+
+    /* 説明文：読みやすさを優先してサイズを少し落とし、行間を確保 */
+    .final-cta .desc {
+        font-size: 14px; /* 17pxから少しダウン */
+        line-height: 2;
+        margin-bottom: 40px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* keep-allを確実に効かせる */
+    .keep-all {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+@media (max-width: 768px) {
+    /* ... 前後の設定は維持 ... */
+
+    .final-cta .cta-btn {
+        width: auto;            /* 横幅いっぱいを解除 */
+        min-width: 280px;       /* 押しやすさは確保しつつ */
+        max-width: 100%;        /* 画面からはみ出さない */
+        padding: 16px 32px;     /* 上下の厚みを24px→16pxへ、左右を絞る */
+        font-size: 15px;        /* 18px→15pxへ。上品なサイズに */
+        margin: 0 auto;         /* 中央寄せ */
+        display: inline-flex;   /* 内容に合わせたサイズにする */
+    }
+
+    .final-cta .desc {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 32px; /* ボタンとの距離を少し詰める */
+    }
+
+    .final-cta .guarantees {
+        margin-top: 32px; /* 下のバッジとの間隔も調整 */
+        gap: 8px;
+    }
+    
+    .final-cta .guarantees span {
+        font-size: 12px;
+        padding: 6px 14px;
+    }
+}

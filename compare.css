@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+/* =========================================
+   共通ユーティリティ
+========================================= */
+.keep-all {
+    display: inline-block;
+}
+
+/* =========================================
+   COMPARISON (比較セクション)
+========================================= */
+.compare {
+    background: var(--white);
+    padding: 120px 20px;
+}
+
+.compare-wrap {
+    max-width: 1000px;
+    margin: 50px auto 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    min-width: 800px;
+    border-top: 2px solid var(--text);
+}
+
+/* 1列ごとの線 */
+.compare-table th,
+.compare-table td {
+    padding: 24px 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap; /* 表内は絶対1行 */
+}
+
+/* PCの文字サイズUP */
+.compare-table th {
+    background: var(--bg-light);
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.compare-table th small {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-mute);
+    display: block;
+    margin-top: 6px;
+}
+
+.compare-table td {
+    font-size: 16px;
+    color: var(--text);
+}
+
+.compare-table td.label,
+.compare-table th.label-cell {
+    text-align: left;
+    font-weight: 800;
+    background: var(--bg-light);
+    width: 180px;
+    padding-left: 24px;
+}
+
+/* S-CLASS ハイライト */
+.compare-table th.hl {
+    background: var(--primary);
+    color: var(--accent);
+    font-size: 20px;
+    letter-spacing: 2px;
+    border-top: 4px solid var(--accent);
+    border-bottom: 1px solid var(--accent);
+}
+
+.compare-table td.hl {
+    background: rgba(211, 47, 47, 0.02);
+    font-weight: 800;
+    border-left: 2px solid var(--accent);
+    border-right: 2px solid var(--accent);
+}
+
+.compare-table tr:last-child td.hl {
+    border-bottom: 2px solid var(--accent);
+}
+
+/* =========================================
+   ▼▼▼ 記号スタイル（△だけ赤に！） ▼▼▼
+========================================= */
+.compare-table .cross, 
+.compare-table .tri { 
+    font-size: 24px; 
+}
+
+/* ✕（クロス）：目立たせないよう薄いグレー */
+.compare-table .cross { 
+    color: #ccc; 
+}
+
+/* △（三角）：不安要素としてS-Classレッド（赤）に！ */
+.compare-table .tri { 
+    color: var(--accent); 
+    font-weight: 800; /* 少し太くして存在感を出す */
+}
+
+/* =========================================
+   ▼▼▼ 比較表下のトドメ（REALITYノート風） ▼▼▼
+========================================= */
+.compare-note {
+    max-width: 850px;
+    margin: 80px auto 0; 
+    padding: 48px 32px;
+    background: rgba(211, 47, 47, 0.03); 
+    border-left: 4px solid var(--accent); 
+    border-radius: 4px;
+    text-align: center; 
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(18px, 3.2vw, 24px); 
+    line-height: 2.2;
+    color: var(--text);
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
+}
+
+.compare-note .accent-line {
+    color: var(--accent);
+    font-weight: 900;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
+}
+
+/* =========================================
+   スマホ用対応
+========================================= */
+@media (max-width: 768px) {
+    .compare { padding: 80px 16px; }
+    .compare-table { min-width: 640px; }
+    
+    .compare-table td.label, 
+    .compare-table th.label-cell {
+        position: sticky;
+        left: 0;
+        z-index: 10;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+    }
+    
+    .compare-table td, .compare-table th {
+        font-size: 13px;
+        padding: 18px 8px;
+    }
+
+    .compare-table th.hl { font-size: 15px; }
+    .compare-table td.label { width: 120px; padding-left: 12px; }
+
+    .compare-note {
+        margin: 48px 10px 0;
+        padding: 32px 20px;
+        font-size: 16px; 
+        line-height: 2;
+        border-left-width: 3px;
+        text-align: center;
+    }
+}
+
+/* 新設：太字で赤字にするクラス */
+.bold-red {
+    color: var(--accent); /* 赤字 */
+    font-weight: 900;     /* 極太字 */
+    background: none;     /* ラインなし */
+}

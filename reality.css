@@ -1,0 +1,178 @@
+/* ===== REALITY ===== */
+.reality {
+    background: var(--gradient-dark);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.reality::before {
+    content: 'REALITY';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(120px, 20vw, 280px);
+    font-weight: 900;
+    color: rgba(255,255,255,0.02);
+    letter-spacing: 10px;
+    pointer-events: none;
+}
+
+.reality .section-title { color: var(--white); position: relative;}
+.reality .section-lead { color: rgba(255,255,255,0.7); position: relative; }
+
+/* ▼ 2列固定グリッド ▼ */
+.reality-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 強制的に2列！ */
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ▼ カード本体 ▼ */
+.reality-card {
+    padding: 0; /* 画像を端まで広げるために0にする */
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(211, 47, 47, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.reality-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(211, 47, 47, 0.15);
+}
+
+/* ▼ 画像エリア ▼ */
+.reality-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid rgba(211, 47, 47, 0.1);
+}
+
+.reality-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.reality-card:hover .reality-img img {
+    transform: scale(1.05); /* ホバーでズーム */
+}
+
+/* ▼ テキストエリア ▼ */
+.reality-content {
+    padding: 30px;
+}
+
+.reality-content .num {
+    font-family: 'Inter', sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.reality-content .stat {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.reality-content h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.reality-content p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.9;
+}
+
+/* ▼ 市松模様の指定（PCのみ） ▼ */
+@media (min-width: 769px) {
+    .reality-card:nth-child(1),
+    .reality-card:nth-child(4) {
+        background: rgba(211, 47, 47, 0.08); /* 左上と右下だけ少し赤くする */
+        border-color: rgba(211, 47, 47, 0.3);
+    }
+}
+
+/* ▼ スマホ対応（1列にする） ▼ */
+@media (max-width: 768px) {
+    .reality-grid {
+        grid-template-columns: 1fr; /* スマホでは1列に */
+        gap: 20px;
+    }
+    
+    .reality-card:nth-child(1),
+    .reality-card:nth-child(4) {
+        background: rgba(255,255,255,0.03); /* スマホ時は市松模様を解除 */
+        border-color: rgba(211, 47, 47, 0.2);
+    }
+}
+
+.reality-note {
+    text-align: center;
+    margin-top: 56px;
+    padding: 32px;
+    background: rgba(211, 47, 47, 0.08);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 17px;
+    line-height: 2;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* reality.css または共通スタイルに追加 */
+
+@media (max-width: 768px) {
+    /* REALITYセクションの導入文をSP最適化 */
+    .reality .section-lead {
+        font-size: clamp(13px, 3.8vw, 15px); /* 画面幅に合わせて微調整 */
+        line-height: 1.8;
+        text-align: center; /* 絶対中央 */
+        margin-bottom: 40px;
+        padding: 0 10px; /* 画面端にピッタリくっつかないように */
+    }
+
+    /* 文字割れ防止 */
+    .keep-all {
+        display: inline-block;
+        vertical-align: top;
+    }
+    
+    /* カード内の数字などもスマホで見やすく微調整 */
+    .reality-content .num {
+        font-size: 38px;
+    }
+    
+    .reality-content h3 {
+        font-size: 18px;
+    }
+}

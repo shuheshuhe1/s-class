@@ -1,0 +1,88 @@
+
+
+/* --- リーガルページ専用スタイル --- */
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+    color: #333;
+    line-height: 1.8;
+    background-color: #fff;
+    margin: 0; padding: 0;
+}
+
+.legal-container {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.legal-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 28px;
+    border-bottom: 2px solid #D32F2F; /* S-Classカラー */
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+}
+
+/* 特商法のテーブル */
+.legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+.legal-table th, .legal-table td {
+    border: 1px solid #eee;
+    padding: 20px;
+    text-align: left;
+}
+
+.legal-table th {
+    background: #f9f9f9;
+    width: 30%;
+    font-weight: bold;
+}
+
+/* プライバシーポリシーの箇条書き */
+.legal-section { margin-bottom: 40px; }
+.legal-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.back-home {
+    display: block;
+    margin-top: 60px;
+    color: #D32F2F;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* --- index.htmlに戻るボタンを「ボタン」らしくする --- */
+.back-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    padding: 12px 32px;
+    background-color: #fff;
+    color: #D32F2F; /* S-Classの赤 */
+    border: 2px solid #D32F2F;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.back-home:hover {
+    background-color: #D32F2F;
+    color: #fff;
+    transform: translateX(-5px); /* 戻る感を出すために左に少し動く */
+}
+
+/* 矢印を少し離す */
+.back-home::before {
+    content: '←';
+    margin-right: 8px;
+}

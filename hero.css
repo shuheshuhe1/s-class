@@ -1,0 +1,155 @@
+/* =========================================
+   HERO セクション (整理完了・最終版)
+========================================= */
+
+/* 単語の途中での不自然な改行を防止 */
+.keep-all {
+    display: inline-block;
+}
+
+.hero {
+    position: relative;
+    height: 100dvh;
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    /* ★ 下寄せ配置 ★ */
+    align-items: flex-end; 
+    overflow: hidden;
+    background-color: #fff;
+    padding-top: 70px;
+    /* 下にベタ付きしないための余白（画面高の10%） */
+    padding-bottom: 10dvh; 
+}
+
+/* 背景画像エリア */
+.hero-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-position: center 20%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+/* 背景にかける白いベール（下を濃くして黒文字を保護） */
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.7) 100%);
+}
+
+/* コンテンツエリア */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+/* --- キャッチコピー --- */
+.hero-catch-main {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(20px, 5vw, 32px);
+    font-weight: 900;
+    color: #111;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #D32F2F;
+    display: inline-block;
+    padding-bottom: 8px;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 1),
+        0 0 20px rgba(255, 255, 255, 0.9),
+        0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+/* --- メインタイトル --- */
+.hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(28px, 7vw, 54px);
+    font-weight: 900;
+    line-height: 1.4;
+    margin-bottom: 50px;
+    color: #111;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 1),
+        0 0 20px rgba(255, 255, 255, 0.9),
+        0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+/* タイトル内の赤文字部分 */
+.hero-title .accent-red {
+    color: #D32F2F;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+
+/* --- ロゴエリア（S画像 ＋ Classテキスト） --- */
+.hero-brand {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.hero-logo-text {
+    font-family: 'Times New Roman', 'Noto Serif JP', serif;
+    font-size: clamp(48px, 10vw, 80px);
+    font-weight: 900;
+    color: #111;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+}
+
+/* 画像ロゴ「S」のサイズと光彩 */
+.hero-logo-s {
+    height: 1.1em;
+    width: auto;
+    margin-right: -0.05em;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+}
+
+/* エスクラス（ルビ） */
+.hero-ruby {
+    font-size: clamp(12px, 3vw, 15px);
+    font-weight: 700;
+    color: #111;
+    letter-spacing: 0.4em;
+    padding-left: 0.4em;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+
+/* SP専用改行制御 */
+.sp-only { display: none; }
+
+/* =========================================
+   スマホ用レスポンシブ (768px以下)
+========================================= */
+@media (max-width: 768px) {
+    .hero { 
+        padding-top: 60px; 
+        padding-bottom: 40px; /* SPでは余白を詰める */
+    }
+    .hero-title { margin-bottom: 40px; }
+    .sp-only { display: block; }
+}
+
+/* --- 赤文字の共通スタイル --- */
+.accent-red {
+    color: #D32F2F !important; /* 強制的にブランドカラーの赤にする */
+}
+
+/* ロゴのSを赤文字にする場合の光彩調整 */
+.hero-logo-text .accent-red {
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 1),
+        0 0 20px rgba(211, 47, 47, 0.3); /* ほんのり赤く光らせる */
+}

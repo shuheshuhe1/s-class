@@ -1,0 +1,139 @@
+/* =========================================
+   VOICES (S-Gymスタイル)
+========================================= */
+.voices {
+    background: #f9f9f9;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+/* セクションヘッダー：VOICEの透かし文字 */
+.section-header {
+    text-align: center;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(60px, 15vw, 120px);
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.03); /* 極めて薄いグレー */
+    z-index: 1;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.section-title {
+    position: relative;
+    z-index: 2;
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 900;
+    color: var(--primary);
+}
+
+/* グリッドレイアウト */
+.voice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.voice-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.voice-card:hover {
+    transform: translateY(-5px);
+}
+
+.voice-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.voice-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #eee;
+    flex-shrink: 0;
+}
+
+.voice-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.voice-stars {
+    color: #f1c40f;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.voice-user {
+    font-size: 13px;
+    color: var(--text-mute);
+    font-weight: 700;
+}
+
+/* 本文 */
+.voice-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* 黄色のハイライト */
+.voice-text .highlight {
+    background: linear-gradient(transparent 60%, rgba(241, 196, 15, 0.3) 60%);
+    font-weight: 800;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    .voices {
+        padding: 80px 0;
+    }
+    .voice-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .voice-card {
+        padding: 25px;
+    }
+}
+
+/* ===== VOICE アバターのモザイク設定 ===== */
+.voice-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #eee;
+    flex-shrink: 0;
+    border: 1px solid #ddd; /* 輪郭をはっきりさせる */
+}
+
+.voice-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* ★モザイク（ボケ）の設定★ */
+    /* 数値を大きくするほど、誰だか全くわからなくなります（4px〜6pxがおすすめ） */
+    filter: blur(5px); 
+    /* ボケた時に端が白くなるのを防ぐため、少しだけ拡大して表示 */
+    transform: scale(1.1); 
+}

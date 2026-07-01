@@ -1,0 +1,135 @@
+/* =========================================
+   INTRO (ボタン ＆ 実績バッジ)
+========================================= */
+.intro {
+    background: #f4f3f0; /* 画像の淡いオフホワイト背景 */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.intro-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* --- ボタンエリア --- */
+.hero-cta-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
+.cta-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 380px; /* 2つのボタンの幅を綺麗に揃える */
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 50px; /* 美しいピル型 */
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 赤いメインボタン */
+.cta-btn.shiny-btn {
+    background: #b03531; /* 画像の深みのある赤 */
+    color: #ffffff;
+    border: 2px solid #b03531; /* アウトラインボタンと高さを合わせるため */
+    /* ボタンの周りにフワッと広がる赤い光彩シャドウ */
+    box-shadow: 0 10px 25px rgba(176, 53, 49, 0.4);
+}
+
+.cta-btn.shiny-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(176, 53, 49, 0.5);
+}
+
+/* 白いアウトラインボタン */
+.cta-btn.outline {
+    background: #ffffff;
+    color: #b03531;
+    border: 2px solid #b03531;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.cta-btn.outline:hover {
+    background: #b03531;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* （※もし以前のshinyアニメーションが残っていればそのまま適用されます） */
+
+/* --- 実績バッジエリア --- */
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap; /* 画面幅に合わせて自動で折り返す */
+    justify-content: center;
+    gap: 16px 20px; /* 上下左右の隙間 */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-meta span {
+    background: #ffffff;
+    color: #111;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 14px 28px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    /* ふんわりとしたドロップシャドウ */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+}
+
+/* CSSの力で先頭に自動で「★」をつける */
+.hero-meta span::before {
+    content: '★';
+    color: #b03531; /* ★だけ赤色にする */
+    font-size: 14px;
+    font-style: normal;
+}
+
+/* =========================================
+   スマホ用レスポンシブ (768px以下)
+========================================= */
+@media (max-width: 768px) {
+    .intro {
+        padding: 50px 16px;
+    }
+
+    /* スマホではボタンを縦並びに */
+    .hero-cta-wrap {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    .cta-btn {
+        width: 100%; /* スマホの横幅いっぱいに広げる */
+        padding: 16px;
+        font-size: 15px;
+    }
+
+    /* バッジもスマホサイズに微調整 */
+    .hero-meta {
+        gap: 12px;
+    }
+
+    .hero-meta span {
+        font-size: 12px;
+        padding: 12px 20px;
+        width: calc(50% - 6px); /* スマホでは綺麗に2列に整列させる */
+        justify-content: center; /* テキストを中央寄せ */
+    }
+}

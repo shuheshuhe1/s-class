@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+/* =========================================
+   HEADER (ヘッダー)
+========================================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(211, 47, 47, 0.2);
+    transition: all 0.3s ease;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ▼ ロゴ ▼ */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.logo img {
+    height: 42px;
+    width: auto;
+    background: var(--white);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.logo-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 2px;
+}
+
+/* ▼ ナビゲーションメニュー ▼ */
+.header-nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.header-nav a:not(.header-cta) {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.header-nav a:not(.header-cta):hover { 
+    color: var(--accent); 
+}
+
+/* ▼ 無料相談ボタン（丸く、押しやすく改善！） ▼ */
+.header-cta {
+    display: inline-block;
+    padding: 10px 24px;
+    background: var(--accent);
+    color: var(--white) !important;
+    text-decoration: none;
+    border-radius: 50px; /* ここを50pxにして美しいピル型に！ */
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3); /* うっすら赤い後光で目立たせる */
+    border: 1px solid var(--accent);
+}
+
+.header-cta:hover { 
+    background: var(--accent-dark); 
+    border-color: var(--accent-dark);
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.5); 
+}
+
+/* =========================================
+   スマホ用レスポンシブ (768px以下)
+========================================= */
+@media (max-width: 768px) {
+    /* スマホでは文字リンクを隠し、ボタンだけ残す（またはハンバーガーにするなら両方隠す） */
+    .header-nav a:not(.header-cta) { 
+        display: none; 
+    }
+    
+    .logo-text { 
+        font-size: 16px; 
+    }
+    
+    .logo img { 
+        height: 36px; 
+    }
+
+    /* スマホ版のボタン微調整 */
+    .header-cta {
+        padding: 8px 18px;
+        font-size: 12px;
+    }
+}
